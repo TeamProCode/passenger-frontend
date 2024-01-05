@@ -13,6 +13,8 @@ import mockDestinations from "./mockDestinations"
 import { Routes, Route } from "react-router-dom"
 import "./components/Footer.css"
 import "./components/Header.css"
+import SignIn from "./pages/SignIn"
+
 
 function App() {
   const [destinations, setDestinations] = useState(mockDestinations)
@@ -28,6 +30,7 @@ function App() {
         <Route path="/destinationedit" element={<DestinationEdit />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
       <Footer />
     </>

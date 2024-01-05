@@ -8,7 +8,8 @@
     /* text-align: center; */
   }
 .navi-bar{
-    flex-wrap: wrap;
+    width: 100%;
+    background: #784E5E;
 }
 .navi-font{
     font-size: medium;
