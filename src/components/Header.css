@@ -1,0 +1,18 @@
+.header {
+    color: #B6706E;
+    font-family: Arial Black;
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 135px;
+    letter-spacing: 0em;
+    /* text-align: center; */
+  }
+.navi-bar{
+    flex-wrap: wrap;
+}
+.navi-font{
+    font-size: medium;
+}
+.space{
+    align-items: center;
+}

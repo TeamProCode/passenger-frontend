@@ -5,12 +5,14 @@ import DestinationEdit from "./pages/DestinationEdit"
 import DestinationIndex from "./pages/DestinationIndex"
 import DestinationNew from "./pages/DestinationNew"
 import DestinationShow from "./pages/DestinationShow"
+import AboutUs from "./pages/AboutUs"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import "./App.css"
 import mockDestinations from "./mockDestinations"
 import { Routes, Route } from "react-router-dom"
-
+import "./components/Footer.css"
+import "./components/Header.css"
 
 function App() {
   const [destinations, setDestinations] = useState(mockDestinations)
@@ -25,6 +27,7 @@ function App() {
         <Route path="/destinationnew" element={<DestinationNew />} />
         <Route path="/destinationedit" element={<DestinationEdit />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
       <Footer />
     </>
