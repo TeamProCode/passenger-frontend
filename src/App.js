@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import DestinationEdit from "./pages/DestinationEdit"
+import DestinationIndex from "./pages/DestinationIndex"
+import DestinationNew from "./pages/DestinationNew"
+import DestinationShow from "./pages/DestinationShow"
+import Home from "./pages/Home"
+import NotFound from "./pages/NotFound"
+import "./App.css"
+import mockDestinations from "./mockDestinations"
+import { Routes, Route } from "react-router-dom"
+
 
 function App() {
+  const [destinations, setDestinations] = useState(mockDestinations)
+  console.log(destinations)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/destinationindex" element={<DestinationIndex />} />
+        <Route path="/destinationshow" element={<DestinationShow />} />
+        <Route path="/destinationnew" element={<DestinationNew />} />
+        <Route path="/destinationedit" element={<DestinationEdit />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App
