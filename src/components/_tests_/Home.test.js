@@ -1,10 +1,18 @@
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
+import { BrowserRouter } from "react-router-dom"
+
 import Home from "../../pages/Home"
 
 
 describe("<Home />", () => {
-    it("renders the home page", () => {
-      const div = document.createElement("div")
-      render(<Home />, div)
-    })
+  it("renders a background with a src and alt", () => {
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    )
+    const background = screen.getByRole("img")
+    expect(background).toHaveAttribute("src", "homeBg.png")
+    expect(background).toHaveAttribute("alt", "Home background image")
+  })
   })

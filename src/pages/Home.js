@@ -5,7 +5,7 @@ import backgroundPicture from "../assests/homeBg.png"
 function Home() {
   return (
     <div >Welcome to the home page
-        <img  src={backgroundPicture} alt="home page picture" ></img>
+        <img  className='home-bg' src={backgroundPicture} alt="Home background image" />
     </div>
 
   )
