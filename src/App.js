@@ -28,9 +28,9 @@ function App() {
         <Route path="/destinationshow" element={<DestinationShow />} />
         <Route path="/destinationnew" element={<DestinationNew />} />
         <Route path="/destinationedit" element={<DestinationEdit />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
