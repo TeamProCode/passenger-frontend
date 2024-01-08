@@ -34,6 +34,12 @@ function Header() {
                          About Us 
                     </NavLink>
                 </NavItem>
+                <NavItem >
+                    <NavLink to="/signin"
+                        className='navi-font'>
+                         Sign-in/Sign-up
+                    </NavLink>
+                </NavItem>
             </Nav >
         </header>
     )
