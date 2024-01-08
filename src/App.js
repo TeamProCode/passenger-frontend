@@ -24,7 +24,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/destinationindex" element={<DestinationIndex />} />
+        <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
         <Route path="/destinationshow" element={<DestinationShow />} />
         <Route path="/destinationnew" element={<DestinationNew />} />
         <Route path="/destinationedit" element={<DestinationEdit />} />
