@@ -17,7 +17,7 @@ function Header() {
                     </NavLink>
                 </NavItem>
                 <NavItem >
-                    <NavLink to="/destinationshow"
+                    <NavLink to="/destinationindex"
                         className='navi-font'>
                           Take Me to Destinations  
                     </NavLink>
