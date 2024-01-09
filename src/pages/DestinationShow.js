@@ -1,6 +1,8 @@
 import React from 'react'
 
-function DestinationShow() {
+function DestinationShow( {destinations, photos} ) {
+  console.log(destinations)
+  console.log(photos)
   return (
     <div>DestinationShow</div>
   )
