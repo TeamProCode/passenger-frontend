@@ -21,14 +21,14 @@ import SignIn from "./pages/SignIn"
 function App() {
   const [destinations, setDestinations] = useState(mockDestinations)
   const [photos , setPhotos] = useState (mockPhotos)
-  console.log(destinations)
+
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
-        <Route path="/destinationshow" element={<DestinationShow destinations={destinations} photos={photos}/>} />
+        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} photos={photos}/>} />
         <Route path="/destinationnew" element={<DestinationNew />} />
         <Route path="/destinationedit" element={<DestinationEdit />} />
         <Route path="/aboutus" element={<AboutUs />} />
