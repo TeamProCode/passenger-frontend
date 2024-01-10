@@ -14,7 +14,8 @@ const DestinationShow = ({ destinations, photos }) => {
     }))
   }
 
-  console.log((currentPhotos))
+  // console.log((currentPhotos))
+  console.log((destinations))
   return (
     <main className="">
       {currentDestination && (
@@ -34,7 +35,7 @@ const DestinationShow = ({ destinations, photos }) => {
           ) => {
             return (
               <div key={index}
-              ><img src={objects.photo}  alt={objects.alt}/>
+              ><img role="photo-data" src={objects.photo}  alt={objects.alt}/>
               <p >{ objects.description }</p>
               </div>
               )
