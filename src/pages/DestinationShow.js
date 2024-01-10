@@ -1,5 +1,7 @@
 import React from 'react'
 import { useParams } from "react-router-dom"
+
+
 const DestinationShow = ({ destinations, photos }) => {
   const { id } = useParams()
   let currentPhotos = photos.filter((photo) => photo.destination_id === +id)
@@ -18,10 +20,16 @@ const DestinationShow = ({ destinations, photos }) => {
       {currentDestination && (
         <>
           <img
-            alt={`profile of a Destination named ${currentDestination.name}`}
+            alt={`profile of a Destination named ${currentDestination.location}`}
             src={currentDestination.image}
             className="Destination-show-img"
+            role="main-destination-image"
           />
+          <p>Location: {currentDestination.location}</p>
+          <p>Climate: {currentDestination.climate}</p>
+          <p>Language: {currentDestination.language}</p>
+          <p>Description: {currentDestination.description}</p>
+
           {displayPhotos(currentPhotos).map((objects, index
           ) => {
             return (

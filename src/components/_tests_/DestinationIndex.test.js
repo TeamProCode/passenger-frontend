@@ -2,7 +2,7 @@ import { getByRole, render, screen } from "@testing-library/react"
 import DestinationIndex from "../../pages/DestinationIndex"
 import mockDestinations from "../../mockDestinations"
 import { BrowserRouter } from "react-router-dom"
-import destinations from "../../mockDestinations"
+// import destinations from "../../mockDestinations"
 
 describe("<DestinationIndex />", () => {
   it("renders without crashing", () => { })
@@ -21,7 +21,7 @@ describe("<DestinationIndex />", () => {
       expect(climate).toBeInTheDocument()
       const description = screen.getByText(`Description: ${destination.description}`)
       expect(description).toBeInTheDocument()
-      screen.logTestingPlaygroundURL()
+      // screen.logTestingPlaygroundURL()
     })
   })
 })
