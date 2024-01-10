@@ -45,29 +45,3 @@ describe("<DesitnationShow />", () => {
 }
 )
 
-// describe("<DestinationShow />", () => {
-//   it("renders without crashing", () => { })
-//   it("renders photo and description", () => {
-//     render(
-//       <BrowserRouter>
-//         <DestinationShow destinations={mockDestinations} photos={mockPhotos} />
-//       </BrowserRouter>
-//     )
-//     mockDestinations.forEach(() => {
-//       const showLocation = screen.getByRole('photo-data', {
-//         name: /profile of a destination san diego, ca, usa/i
-//       })
-
-//       expect(showLocation).toHaveAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/7/7e/San_Diego_Skyline_-_Illustration.jpg")
-//       expect(showLocation).toHaveAttribute("alt", "San Diego sunset")
-//       screen.logTestingPlaygroundURL()
-
-//       mockPhotos.forEach((photo) => {
-//         const destinationPhoto = screen.getByRole(photo.image)
-//         expect(destinationPhoto).toBeInTheDocument()
-
-//         const description = screen.getByAltText(`Description: ${destination.description}`)
-//       })
-//     })
-//   })
-// })
