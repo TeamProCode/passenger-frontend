@@ -2,7 +2,7 @@ import React from 'react'
 import backgroundPicture from "../assests/homeBg.png"
 // import './Home.css'
 
-function Home() {
+const Home = () => {
   return (
     <div >Welcome to the home page
         <img  className='home-bg' src={backgroundPicture} alt="Home background image" />

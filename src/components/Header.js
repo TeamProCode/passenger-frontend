@@ -2,7 +2,7 @@ import React from 'react'
 import { Nav, NavItem } from 'reactstrap'
 import { NavLink } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
     return (
         <header className='header'>
             Passenger🛫

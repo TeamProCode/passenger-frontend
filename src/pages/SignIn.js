@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SignIn() {
+const SignIn = () => {
   return (
     <div>please Sign in or Sign up here</div>
   )
