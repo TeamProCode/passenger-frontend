@@ -44,4 +44,4 @@ const DestinationNew = ({ createDestination }) => {
   )
 }
 
-export default DestinationNew
+export default DestinationNew;

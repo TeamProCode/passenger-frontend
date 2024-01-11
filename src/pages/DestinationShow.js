@@ -25,6 +25,7 @@ const DestinationShow = ({ destinations, photos }) => {
             src={currentDestination.image}
             className="Destination-show-img"
             role="main-destination-image"
+            style={{ width: "300px", height: "auto" }}
           />
           <p>Location: {currentDestination.location}</p>
           <p>Climate: {currentDestination.climate}</p>

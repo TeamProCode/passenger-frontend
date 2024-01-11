@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+body {
+  background-color: rgba(195, 167, 139, 0.11);
+}
+
+.footer {
+  margin-top: 80px;
+  bottom: 0;
+}
+
+.home-bg .manual-font {
+    font-family: 'Manuale', serif;
+  }
+
+  .home-bg button {
+    margin-right: 10px;
+    padding: 10px 20px;
+
+  }
+
+
+  .carousel-control-next-icon {
+    background-image: url("./assests/VectorR.svg") !important;
+    width: 5rem !important;
+    height: 3rem !important;
+  }
+  
+  .carousel-control-prev-icon {
+    background-image: url("./assests/VectorL.svg") !important;
+    width: 5rem !important;
+    height: 3rem !important;
+  }
+  
+  .destination-new-container {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .destination-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }

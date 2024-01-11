@@ -1,0 +1,12 @@
+.homeflex {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .home-bg {
+    background-image:url(../assests/homeBg.png);
+    background-position:center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+  }

@@ -1,11 +1,11 @@
 .header {
     color: #B6706E;
     font-family: Arial Black;
-    font-size: 96px;
+    font-size: 6px;
     font-weight: 900;
-    line-height: 135px;
+    line-height: 85px;
     letter-spacing: 0em;
-    /* text-align: center; */
+    margin: 0;
   }
 .navi-bar{
     width: 100%;
@@ -13,7 +13,14 @@
 }
 .navi-font{
     font-size: medium;
+    color: #C3A78B;
 }
+
+.navi-font:hover {
+    color: #195789;
+}
+
 .space{
     align-items: center;
 }
+

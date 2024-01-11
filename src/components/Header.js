@@ -1,11 +1,19 @@
 import React from 'react'
 import { Nav, NavItem } from 'reactstrap'
 import { NavLink } from 'react-router-dom';
+import Pass from '../assests/Pass.svg'
 
 const Header = () => {
     return (
+       <>
+        <img
+        alt="logo"
+        src={Pass}
+        width={"480"}
+        height={"80"}
+        style={{ marginLeft: '0 auto', display: 'block' }}
+        />
         <header className='header'>
-            Passenger🛫
             <Nav className='navi-bar'
                 justified
                 pills
@@ -42,6 +50,7 @@ const Header = () => {
                 </NavItem>
             </Nav >
         </header>
+        </> 
     )
 }
 
