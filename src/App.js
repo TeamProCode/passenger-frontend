@@ -20,7 +20,10 @@ import SignIn from "./pages/SignIn"
 
 function App() {
   const [destinations, setDestinations] = useState(mockDestinations)
-  const [photos , setPhotos] = useState (mockPhotos)
+  const [photos, setPhotos] = useState(mockPhotos)
+  const createDestination = (destination) => {
+    console.log(destination)
+  }
 
   return (
     <>
@@ -28,8 +31,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
-        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} photos={photos}/>} />
-        <Route path="/destinationnew" element={<DestinationNew />} />
+        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} photos={photos} />} />
+        <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
         <Route path="/destinationedit" element={<DestinationEdit />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />

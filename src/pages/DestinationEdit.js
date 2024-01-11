@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-function DestinationEdit() {
+const DestinationEdit = () => {
   return (
     <div>DestinationEdit</div>
   )
