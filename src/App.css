@@ -2,6 +2,7 @@
 
 body {
   background-color: rgba(195, 167, 139, 0.11);
+  
 }
 
 .footer {
@@ -32,15 +33,19 @@ body {
     height: 3rem !important;
   }
   
-  .destination-new-container {
-    text-align: left;
-    max-width: 600px;
-    margin: 0 auto;
+  .destination-flex {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the height of the body to 100% of the viewport height */
+  margin: 0;
   }
   
   .destination-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    max-width: 300px; /* Adjust the maximum width of the form container as needed */
   }
   
   .form-group {
@@ -52,7 +57,7 @@ body {
     margin-bottom: 5px;
   }
   
-  label {
-    display: block;
-    margin-bottom: 5px;
+  /* Adjust the width of the input boxes */
+  input {
+    width: 100%; 
   }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import backgroundPicture from "../assests/homeBg.png";
 import { Link } from 'react-router-dom';
 import Highlights from "../assests/Highlights.svg";
 import {
@@ -9,7 +8,7 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from "reactstrap";
-// import './Home.css';
+import backgroundPicture from "../assests/homeBg.png";
 
 const items = [
   {
@@ -44,7 +43,7 @@ const items = [
   },
 ];
 
-const Home = (args) => {
+const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -65,23 +64,21 @@ const Home = (args) => {
     setActiveIndex(newIndex);
   };
 
-  const slides = items.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-      >
-        <div>
-          <img src={item.src} alt={item.altText} style={{ height: "300px" }} />
-          <CarouselCaption
-            captionText={item.caption}
-            captionHeader={item.caption}
-          />
-        </div>
-      </CarouselItem>
-    );
-  });
+  const slides = items.map((item) => (
+    <CarouselItem
+      onExiting={() => setAnimating(true)}
+      onExited={() => setAnimating(false)}
+      key={item.src}
+    >
+      <div>
+        <img src={item.src} alt={item.altText} style={{ height: "300px" }} />
+        <CarouselCaption
+          captionText={item.caption}
+          captionHeader={item.caption}
+        />
+      </div>
+    </CarouselItem>
+  ));
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundPicture})`,
@@ -105,23 +102,22 @@ const Home = (args) => {
   };
 
   const highlightStyle = {
-    position: 'absolute', 
+    position: 'absolute',
     textAlign: 'center',
-    marginTop: '2px', 
+    marginTop: '2px',
     left: '0',
   };
 
   const carouselStyle = {
     marginTop: '160px',
     fontFamily: 'Manuale, serif',
-  }
+  };
 
-const Home = () => {
   return (
     <div className="homeflex">
       <div className="home-bg" style={backgroundStyle}>
         <div style={mottoText}>
-          <h2>Whether living vicariously through others, or creating bonds while embarking on adventures together, Passenger allows you to experience the places we all love to go!</h2>
+          <h2>Whether living vicariously through others or creating bonds while embarking on adventures together, Passenger allows you to experience the places we all love to go!</h2>
           <Link to="/signin" className="manual-font">
             <button>GET ACCESS</button>
           </Link>
@@ -136,34 +132,33 @@ const Home = () => {
         />
       </div>
       <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-      {...args}
-      className="text-center"
-      style={carouselStyle}
-    >
-      <CarouselIndicators
-        items={items}
         activeIndex={activeIndex}
-        onClickHandler={goToIndex}
-      />
-      {slides}
-      <div className="home-arrow">
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={previous}
+        next={next}
+        previous={previous}
+        className="text-center"
+        style={carouselStyle}
+      >
+        <CarouselIndicators
+          items={items}
+          activeIndex={activeIndex}
+          onClickHandler={goToIndex}
         />
-      </div>
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
-      />
-    </Carousel>
+        {slides}
+        <div className="home-arrow">
+          <CarouselControl
+            direction="prev"
+            directionText="Previous"
+            onClickHandler={previous}
+          />
+          <CarouselControl
+            direction="next"
+            directionText="Next"
+            onClickHandler={next}
+          />
+        </div>
+      </Carousel>
     </div>
   );
-}
+};
 
 export default Home;
