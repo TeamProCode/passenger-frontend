@@ -18,7 +18,7 @@ import "./components/Header.css"
 import SignIn from "./pages/SignIn"
 
 
-function App() {
+const App = () => {
   const [destinations, setDestinations] = useState(mockDestinations)
   const [photos, setPhotos] = useState(mockPhotos)
   const createDestination = (destination) => {
