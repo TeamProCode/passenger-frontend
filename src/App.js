@@ -28,7 +28,8 @@ const App = () => {
 
   const createPhoto = (photo) => {
     console.log(photo)
-    
+  }
+  
   const updateDestination = (destination, id) => {
     console.log("destination:", destination)
     console.log("id:", id)
@@ -56,5 +57,6 @@ const App = () => {
     </>
   )
 }
+
 
 export default App
