@@ -37,7 +37,8 @@ const App = () => {
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
         <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} photos={photos} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
-        <Route path="/photonew" element={<PhotoNew createPhoto={createPhoto} /> } />
+        <Route path="/destinationshow/:id/photonew" element={<PhotoNew 
+        destinations={destinations} createPhoto={createPhoto}  /> } />
         <Route path="/destinationedit" element={<DestinationEdit />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />

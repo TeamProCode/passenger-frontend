@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const PhotoNew = ({ createPhoto }) => {
+const PhotoNew = ({ destinations, createPhoto }) => {
+
+  const { id } = useParams()
+  let currentDestination = destinations?.find((destination) => destination.id === +id)
+
   const navigate = useNavigate();
   const [newPhoto, setNewPhoto] = useState({
     image: "",
     description: "",
+    destination_id: currentDestination.id
   });
 
   const handleChange = (e) => {
@@ -15,7 +20,7 @@ const PhotoNew = ({ createPhoto }) => {
 
   const handleSubmit = () => {
     createPhoto(newPhoto);
-    navigate("/destinationshow");
+    navigate(`/destinationshow/${currentDestination.id}`);
   };
 
   const newPhotoStyle = {

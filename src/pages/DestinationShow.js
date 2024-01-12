@@ -1,5 +1,8 @@
 import React from 'react'
-import { useParams } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
+import { Button } from "reactstrap"
+
+
 
 
 const DestinationShow = ({ destinations, photos }) => {
@@ -13,8 +16,7 @@ const DestinationShow = ({ destinations, photos }) => {
       return object
     }))
   }
-
-  // console.log((currentPhotos))
+  
   console.log((destinations))
   return (
     <main className="">
@@ -41,6 +43,9 @@ const DestinationShow = ({ destinations, photos }) => {
               </div>
               )
           })}
+            <NavLink to={`/destinationshow/${id}/photonew`}>
+              <button>Add Photos </button>
+            </NavLink>
     </>
   )
 }
