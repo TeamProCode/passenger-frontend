@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import DestinationEdit from "./pages/DestinationEdit"
 import DestinationIndex from "./pages/DestinationIndex"
 import DestinationNew from "./pages/DestinationNew"
+import PhotoNew from "./pages/PhotoNew"
 import DestinationShow from "./pages/DestinationShow"
 import AboutUs from "./pages/AboutUs"
 import Home from "./pages/Home"
@@ -24,6 +25,10 @@ const App = () => {
   const createDestination = (destination) => {
     console.log(destination)
   }
+
+  const createPhoto = (photo) => {
+    console.log(photo)
+    
   const updateDestination = (destination, id) => {
     console.log("destination:", destination)
     console.log("id:", id)
@@ -37,6 +42,8 @@ const App = () => {
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
         <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} photos={photos} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
+        <Route path="/destinationshow/:id/photonew" element={<PhotoNew 
+        destinations={destinations} createPhoto={createPhoto}  /> } />
         <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination}/>} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />
