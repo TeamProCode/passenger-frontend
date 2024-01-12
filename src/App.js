@@ -25,8 +25,13 @@ const App = () => {
   const createDestination = (destination) => {
     console.log(destination)
   }
+
   const createPhoto = (photo) => {
     console.log(photo)
+    
+  const updateDestination = (destination, id) => {
+    console.log("destination:", destination)
+    console.log("id:", id)
   }
 
   return (
@@ -39,7 +44,7 @@ const App = () => {
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
         <Route path="/destinationshow/:id/photonew" element={<PhotoNew 
         destinations={destinations} createPhoto={createPhoto}  /> } />
-        <Route path="/destinationedit" element={<DestinationEdit />} />
+        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination}/>} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<NotFound />} />

@@ -4,7 +4,6 @@ import { Button } from "reactstrap"
 
 
 
-
 const DestinationShow = ({ destinations, photos }) => {
   const { id } = useParams()
   let currentPhotos = photos.filter((photo) => photo.destination_id === +id)
@@ -33,6 +32,9 @@ const DestinationShow = ({ destinations, photos }) => {
           <p>Climate: {currentDestination.climate}</p>
           <p>Language: {currentDestination.language}</p>
           <p>Description: {currentDestination.description}</p>
+          <NavLink to={`/destinationedit/${currentDestination.id}`} className="nav-link">
+          Edit Destination
+          </NavLink>
 
           {displayPhotos(currentPhotos).map((objects, index
           ) => {
