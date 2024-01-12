@@ -4,6 +4,7 @@ import { Button } from 'reactstrap'
 
 
 
+
 const DestinationShow = ({ destinations, photos, deleteDestination }) => {
   const { id } = useParams()
   let currentPhotos = photos.filter((photo) => photo.destination_id === +id)
@@ -15,6 +16,7 @@ const DestinationShow = ({ destinations, photos, deleteDestination }) => {
       return object
     }))
   }
+  
   const handleDelete = () => {
     deleteDestination(currentDestination, currentDestination.id)
   }
@@ -55,9 +57,14 @@ const DestinationShow = ({ destinations, photos, deleteDestination }) => {
               </div>
             )
           })}
-        </>
-      )
-      }
+
+            <NavLink to={`/destinationshow/${id}/photonew`}>
+              <button>Add Photos </button>
+            </NavLink>
+    </>
+  )
+}
+
     </main >
   )
 }
