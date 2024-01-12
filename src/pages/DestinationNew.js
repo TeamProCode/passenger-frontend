@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import { useNavigate } from 'react-router-dom';
 import NewDestination from "../assests/NewDestination.svg";
+import backgroundPicture from "../assests/homeBg.png";
 
 const DestinationNew = ({ createDestination }) => {
   const navigate = useNavigate();
@@ -22,46 +23,59 @@ const DestinationNew = ({ createDestination }) => {
     navigate("/destinationindex");
   };
 
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundPicture})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '65vh',
+    position: 'relative',
+  };
+
   const newDestStyle = {
     position: 'absolute',
     textAlign: 'center',
-    marginTop: '2px',
-    left: '0',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   };
 
   return (
-    <div>
-      <div style={newDestStyle}>
-        <img
-          alt="New Destination"
-          src={NewDestination}
-          width={480}
-          height={80}
-        />
+      <div className="homeflex">
+        <div style={backgroundStyle}>
+          <div style={newDestStyle}>
+            <img
+            alt="New Destination"
+            src={NewDestination}
+            width={480}
+            height={80}
+            />
+          </div>
       </div>
+      
       <div className='destination-flex'>
         <Form>
-          <FormGroup>
+          <FormGroup className="new-destination-style">
             <Label for="location">Location</Label>
             <Input role="textbox-location" type="text" id="location" onChange={handleChange} value={newDestination.location} />
           </FormGroup>
-          <FormGroup>
+          <FormGroup className="new-destination-style">
             <Label for="climate">Climate</Label>
             <Input role="textbox-climate" type="text" id="climate" onChange={handleChange} value={newDestination.climate} />
           </FormGroup>
-          <FormGroup>
+          <FormGroup className="new-destination-style">
             <Label for="language">Language</Label>
             <Input role="textbox-language" type="text" id="language" onChange={handleChange} value={newDestination.language} />
           </FormGroup>
-          <FormGroup>
+          <FormGroup className="new-destination-style">
             <Label for="description">Description</Label>
             <Input role="textbox-description" type="text" id="description" onChange={handleChange} value={newDestination.description} />
           </FormGroup>
-          <FormGroup>
+          <FormGroup className="new-destination-style">
             <Label for="image">Image</Label>
             <Input role="textbox-image" type="img" id="image" onChange={handleChange} value={newDestination.image} />
           </FormGroup>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button onClick={handleSubmit} style={{ backgroundColor: '#195789' }}>Submit</Button>
         </Form>
       </div>
     </div>
