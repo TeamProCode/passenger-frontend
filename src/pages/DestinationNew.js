@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import { useNavigate } from 'react-router-dom';
-import NewDestination from "../assests/NewDestination.svg";
+import NewDestination from "/Users/learnacademy/Desktop/passenger-frontend/src/assests/NewDestination.svg";
 
 const DestinationNew = ({ createDestination }) => {
   const navigate = useNavigate();
