@@ -1,10 +1,11 @@
 import React from 'react'
 import { useParams, NavLink } from "react-router-dom"
-import { Button } from "reactstrap"
+import { Button } from 'reactstrap'
 
 
 
-const DestinationShow = ({ destinations, photos }) => {
+
+const DestinationShow = ({ destinations, photos, deleteDestination }) => {
   const { id } = useParams()
   let currentPhotos = photos.filter((photo) => photo.destination_id === +id)
   let currentDestination = destinations.find((destination) => destination.id === +id)
@@ -16,6 +17,11 @@ const DestinationShow = ({ destinations, photos }) => {
     }))
   }
   
+  const handleDelete = () => {
+    deleteDestination(currentDestination, currentDestination.id)
+  }
+
+  // console.log((currentPhotos))
   console.log((destinations))
   return (
     <main className="">
@@ -33,24 +39,32 @@ const DestinationShow = ({ destinations, photos }) => {
           <p>Language: {currentDestination.language}</p>
           <p>Description: {currentDestination.description}</p>
           <NavLink to={`/destinationedit/${currentDestination.id}`} className="nav-link">
-          Edit Destination
+            Edit Destination
           </NavLink>
+          <NavLink to={'/destinationindex'} className="nav-link">
+            <Button onClick={handleDelete}>
+              Remove This Destination
+            </Button>
+          </NavLink>
+
 
           {displayPhotos(currentPhotos).map((objects, index
           ) => {
             return (
               <div key={index}
-              ><img role="photo-data" src={objects.photo}  alt={objects.alt}/>
-              <p >{ objects.description }</p>
+              ><img role="photo-data" src={objects.photo} alt={objects.alt} />
+                <p >{objects.description}</p>
               </div>
-              )
+            )
           })}
+
             <NavLink to={`/destinationshow/${id}/photonew`}>
               <button>Add Photos </button>
             </NavLink>
     </>
   )
 }
+
     </main >
   )
 }
