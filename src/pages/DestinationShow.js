@@ -1,5 +1,6 @@
 import React from 'react'
-import { useParams } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
+
 
 
 const DestinationShow = ({ destinations, photos }) => {
@@ -31,6 +32,9 @@ const DestinationShow = ({ destinations, photos }) => {
           <p>Climate: {currentDestination.climate}</p>
           <p>Language: {currentDestination.language}</p>
           <p>Description: {currentDestination.description}</p>
+          <NavLink to={`/destinationedit/${currentDestination.id}`} className="nav-link">
+          Edit Destination
+          </NavLink>
 
           {displayPhotos(currentPhotos).map((objects, index
           ) => {

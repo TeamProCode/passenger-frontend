@@ -24,6 +24,10 @@ const App = () => {
   const createDestination = (destination) => {
     console.log(destination)
   }
+  const updateDestination = (destination, id) => {
+    console.log("destination:", destination)
+    console.log("id:", id)
+  }
 
   return (
     <>
@@ -33,7 +37,7 @@ const App = () => {
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
         <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} photos={photos} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
-        <Route path="/destinationedit" element={<DestinationEdit />} />
+        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination}/>} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<NotFound />} />
