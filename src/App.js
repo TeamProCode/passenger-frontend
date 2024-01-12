@@ -28,16 +28,19 @@ const App = () => {
     console.log("destination:", destination)
     console.log("id:", id)
   }
-
+  const deleteDestination = (destination, id) => {
+    console.log("destination:", destination)
+    console.log("id:", id)
+  }
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
-        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} photos={photos} />} />
+        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
-        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination}/>} />
+        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<NotFound />} />
