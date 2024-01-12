@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
 
 body {
-  background-color: rgba(195, 167, 139, 0.11);
+  background-color: rgba(195, 167, 139);
   
 }
 
@@ -9,6 +9,8 @@ body {
   margin-top: 80px;
   bottom: 0;
 }
+
+ /* HOME PAGE BEGINS */
 
 .home-bg .manual-font {
     font-family: 'Manuale', serif;
@@ -19,7 +21,6 @@ body {
     padding: 10px 20px;
 
   }
-
 
   .carousel-control-next-icon {
     background-image: url("./assests/VectorR.svg") !important;
@@ -32,13 +33,16 @@ body {
     width: 5rem !important;
     height: 3rem !important;
   }
-  
+   /* HOME PAGE ENDS */
+
+  /* NEW DESTINATION PAGE BEGINS */
+
   .destination-flex {
     display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Set the height of the body to 100% of the viewport height */
-  margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Set the height of the body to 100% of the viewport height */
+    margin: 0;
   }
   
   .destination-form {
@@ -46,6 +50,11 @@ body {
     flex-direction: column;
     align-items: center;
     max-width: 300px; /* Adjust the maximum width of the form container as needed */
+  }
+
+  .new-destination-style {
+    color: #B6706E;
+    font-family: Arial Black;
   }
   
   .form-group {
@@ -60,4 +69,102 @@ body {
   /* Adjust the width of the input boxes */
   input {
     width: 100%; 
+  }
+  /* NEW DESTINATION PAGE ENDS */
+
+  /* SIGN-IN PAGE BEGINS */
+
+  .sign-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    margin: 0;
+    margin-top: 0;
+  }
+  
+  .sign-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px; /* Adjust the maximum width of the form container as needed */
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1px;
+  }
+
+  /* SIGN-IN PAGE ENDS */
+
+  /* ABOUT PAGE BEGINS */
+
+  .bioflex {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2em;
+  }
+  
+  .biobox {
+    width: 600px;
+    height: 450px;
+    border: 1px solid black; 
+    background-color: #D7BC98;
+    opacity: .8;
+    margin-top:6em;
+  }
+  
+  .title {
+    padding: 5px 10px 5px 10px;
+    text-align:center;
+    font-family: 'Marck Script', cursive;
+    font-size: 3rem;
+    color:#195789;
+  }
+  
+  .parabio {
+    padding: 5px 20px 25px 20px;
+    text-wrap:wrap;
+    text-align:justify;
+    font-family: 'Arial', Black;
+    font-size: 16px;
+    color:#B6706E;
+  }
+  
+  .imagebiokong {
+    /* background-image: url(../); */
+    width: 600px;
+    height: 450px;
+    border: 1px solid black; 
+    background-color: #021503;
+    margin-top:6em;
+  }
+
+  .imagebioandre {
+    /* background-image: url(../); */
+    width: 600px;
+    height: 450px;
+    border: 1px solid black; 
+    background-color: #021503;
+    margin-top:6em;
+  }
+
+  .imagebioem {
+    /* background-image: url(../); */
+    width: 600px;
+    height: 450px;
+    border: 1px solid black; 
+    background-color: #021503;
+    margin-top:6em;
+  }
+
+  .imagebioant {
+    /* background-image: url(../); */
+    width: 600px;
+    height: 450px;
+    border: 1px solid black; 
+    background-color: #021503;
+    margin-top:6em;
   }
