@@ -19,7 +19,7 @@ const items = [
   {
     src: "https://alaskatours.com/wp-content/uploads/2016/01/Alyeska-Resort-Northern-Lights-medium.jpg",
     key: 2,
-    caption: 'Alyeska Resort, USA',
+    caption: 'Girdwood, USA',
   },
   {
     src: "https://media.timeout.com/images/105240244/750/422/image.jpg",
@@ -119,7 +119,7 @@ const Home = () => {
         <div style={mottoText}>
           <h2>Whether living vicariously through others or creating bonds while embarking on adventures together, Passenger allows you to experience the places we all love to go!</h2>
           <Link to="/signin" className="manual-font">
-            <button>GET ACCESS</button>
+            <button style={{ backgroundColor: '#195789' }}>GET ACCESS</button>
           </Link>
         </div>
       </div>

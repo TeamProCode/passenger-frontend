@@ -69,7 +69,7 @@ const SignIn = () => {
         </FormGroup>
         <div className="button-container"> {/* Container for both buttons */}
           <Button onClick={handleSignIn} style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
-          <Button color="info" onClick={toggleModal} style={{ backgroundColor: '#195789'}}>Create an Account</Button>
+          <Button color="info" onClick={toggleModal} style={{ backgroundColor: '#195789', outline: 'none' }}>Create an Account</Button>
         </div>
       </Form>
 
