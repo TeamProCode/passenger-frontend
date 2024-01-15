@@ -5,9 +5,9 @@ const Github = () => {
     const gitHubURL = 'https://github.com/TeamProCode';
   
     return (
-      <a href={gitHubURL} target="_blank" rel="noopener noreferrer">
+      <a href={gitHubURL} target="_blank">
         <img
-          alt=""
+          alt="ProCode Github"
           width={"32"}
           height={"32"}
           src={minigit}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Github from '../components/Footer.js';
+import Github from './Github'
 
 const Footer = () => {
   return (
