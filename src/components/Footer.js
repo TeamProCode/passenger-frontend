@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Github from '../components/Footer.js';
 
 const Footer = () => {
   return (
-    <div className='footer'>Footer</div>
-  )
-}
+    <>
+      <div className='footer'>
+        <p className='footer-text'>ProCode<Github /> 2024</p>
+      </div>
 
-export default Footer
+      <div className="footerbutton"></div>
+    </>
+  );
+};
+
+export default Footer;
+
