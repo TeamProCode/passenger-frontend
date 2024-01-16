@@ -130,8 +130,8 @@ body {
   }
   
   .biobox {
-    width: 600px;
-    height: 450px;
+    width: 400px;
+    height: 350px;
     border: 1px solid black; 
     background-color: #D7BC98;
     opacity: .8;
@@ -152,42 +152,46 @@ body {
     text-align:justify;
     font-family: 'Arial', Black;
     font-size: 16px;
-    color:#B6706E;
+    color:#070707;
   }
   
   .imagebiokong {
-    /* background-image: url(../); */
-    width: 600px;
-    height: 450px;
+    background-image: url(./assests/Joseph.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 350px;
     border: 1px solid black; 
-    background-color: #021503;
     margin-top:6em;
   }
 
   .imagebioandre {
-    /* background-image: url(../); */
-    width: 600px;
-    height: 450px;
+    background-image: url(./assests/Andre.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 350px;
     border: 1px solid black; 
-    background-color: #021503;
     margin-top:6em;
   }
 
   .imagebioem {
-    /* background-image: url(../); */
-    width: 600px;
-    height: 450px;
+    background-image: url(./assests/Em.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 350px;
     border: 1px solid black; 
-    background-color: #021503;
     margin-top:6em;
   }
 
   .imagebioant {
-    /* background-image: url(../); */
-    width: 600px;
-    height: 450px;
+    background-image: url(./assests/Ant.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 350px;
     border: 1px solid black; 
-    background-color: #021503;
     margin-top:6em;
   }
   /* ABOUT PAGE ENDS */
