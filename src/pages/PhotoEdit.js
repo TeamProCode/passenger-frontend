@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { Form, FormGroup, Input, Label, Button} from "reactstrap"
 
-const PhotoEdit = ({ destinations, photos, updatePhoto }) => {
+const PhotoEdit = ({ destinations, photos, updatePhoto, deletePhoto }) => {
   const { destinationId, photoId } = useParams()
   let currentDestination = destinations?.find((destination) => destination.id === +destinationId)
     console.log(currentDestination)
@@ -24,6 +24,10 @@ const handleSubmit = () => {
   updatePhoto(editPhoto, currentPhoto.id)
   navigate(`/destinationshow/${currentDestination.id}`)
 }
+const handleDelete = () => { 
+  deletePhoto(currentPhoto, photoId)
+  navigate(`/destinationshow/${currentDestination.id}`)
+}
   return (
         <div>
         <Form>
@@ -38,6 +42,9 @@ const handleSubmit = () => {
         </Form>
         <Button onClick={handleSubmit} id="submit">
         Submit Updated Photo
+      </Button>
+        <Button onClick={handleDelete} id="delete">
+        Delete This Photo
       </Button>
       </div>
         )
