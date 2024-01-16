@@ -5,24 +5,25 @@ import { Button } from 'reactstrap'
 
 
 
-const DestinationShow = ({ destinations, photos, deleteDestination }) => {
+const DestinationShow = ({ destinations, photos, deleteDestination, }) => {
   const { id } = useParams()
   let currentPhotos = photos.filter((photo) => photo.destination_id === +id)
   let currentDestination = destinations.find((destination) => destination.id === +id)
-
+  // let currentPhoto =  currentPhotos.find((photo) => photo.id === +{photoID})
 
   const displayPhotos = (array) => {
     return (array.map((object) => {
       return object
     }))
   }
-  
+
   const handleDelete = () => {
     deleteDestination(currentDestination, currentDestination.id)
   }
 
   // console.log((currentPhotos))
   console.log((destinations))
+  console.log((currentPhotos))
   return (
     <main className="">
       {currentDestination && (
@@ -48,22 +49,26 @@ const DestinationShow = ({ destinations, photos, deleteDestination }) => {
           </NavLink>
 
 
-          {displayPhotos(currentPhotos).map((objects, index
+          {displayPhotos(currentPhotos).map((photoObject, index
           ) => {
             return (
-              <div key={index}
-              ><img role="photo-data" src={objects.photo} alt={objects.alt} />
-                <p >{objects.description}</p>
+              <div key={index}> <img role="photo-data" src={photoObject.image} alt={photoObject.alt} />
+                <p>{photoObject.description}</p>
+                <NavLink to={`photoedit/${photoObject.id}`}
+                  className="nav-link">
+                  <button>
+                    Edit Photo
+                  </button>
+                </NavLink>
               </div>
             )
           })}
-
-            <NavLink to={`/destinationshow/${id}/photonew`}>
-              <button>Add Photos </button>
-            </NavLink>
-    </>
-  )
-}
+          <NavLink to={`/destinationshow/${id}/photonew`}>
+            <button>Add Photos </button>
+          </NavLink>
+        </>
+      )
+      }
 
     </main >
   )

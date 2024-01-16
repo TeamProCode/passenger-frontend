@@ -5,6 +5,7 @@ import DestinationEdit from "./pages/DestinationEdit"
 import DestinationIndex from "./pages/DestinationIndex"
 import DestinationNew from "./pages/DestinationNew"
 import PhotoNew from "./pages/PhotoNew"
+import PhotoEdit from "./pages/PhotoEdit"
 import DestinationShow from "./pages/DestinationShow"
 import AboutUs from "./pages/AboutUs"
 import Home from "./pages/Home"
@@ -25,30 +26,40 @@ const App = () => {
   const createDestination = (destination) => {
     console.log(destination)
   }
-
+  console.log(photos)
   const createPhoto = (photo) => {
     console.log(photo)
-  }
-  
-  const updateDestination = (destination, id) => {
+  } 
+  const updateDestination = (destination, destinationId) => {
     console.log("destination:", destination)
-    console.log("id:", id)
+    console.log("id:", destinationId)
   }
-  const deleteDestination = (destination, id) => {
+
+  const updatePhoto = (photo, photoId) => {
+    console.log("photo:", photo)
+    console.log("id:", photoId)
+  }
+  // const [photoID, setPhotoID] =useState(" ")
+  // const whenClicked = (clickedId) => {
+  //   setPhotoID (clickedId)
+  // }
+  const deleteDestination = (destination, destinationId) => {
     console.log("destination:", destination)
-    console.log("id:", id)
+    console.log("id:", destinationId)
   }
+
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
-        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} />} />
+        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} updatePhoto={updatePhoto} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
         <Route path="/destinationshow/:id/photonew" element={<PhotoNew 
         destinations={destinations} createPhoto={createPhoto}  /> } />
         <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination}/>} />
+        <Route path="/destinationshow/:destinationId/photoedit/:photoId" element={<PhotoEdit destinations={destinations} photos={photos} updatePhoto={updatePhoto}/>} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<NotFound />} />
