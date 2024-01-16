@@ -23,7 +23,7 @@ const DestinationEdit = ({ destinations, updateDestination }) => {
   const navigate = useNavigate()
 const handleSubmit = () => {
   updateDestination(editDestination, currentDestination.id)
-  navigate("/destinationindex")
+  navigate(`/destinationshow/${currentDestination.id}`);
 }
   return(
   <div>
