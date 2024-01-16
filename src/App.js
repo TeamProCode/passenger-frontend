@@ -29,7 +29,7 @@ const App = () => {
   console.log(photos)
   const createPhoto = (photo) => {
     console.log(photo)
-  } 
+  }
   const updateDestination = (destination, destinationId) => {
     console.log("destination:", destination)
     console.log("id:", destinationId)
@@ -39,15 +39,15 @@ const App = () => {
     console.log("photo:", photo)
     console.log("id:", photoId)
   }
-  // const [photoID, setPhotoID] =useState(" ")
-  // const whenClicked = (clickedId) => {
-  //   setPhotoID (clickedId)
-  // }
+
   const deleteDestination = (destination, destinationId) => {
     console.log("destination:", destination)
     console.log("id:", destinationId)
   }
-
+  const deletePhoto = (photo, photoId) => {
+    console.log("photo", photo)
+    console.log("id", photoId)
+  }
   return (
     <>
       <Header />
@@ -56,10 +56,10 @@ const App = () => {
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
         <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} updatePhoto={updatePhoto} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
-        <Route path="/destinationshow/:id/photonew" element={<PhotoNew 
-        destinations={destinations} createPhoto={createPhoto}  /> } />
-        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination}/>} />
-        <Route path="/destinationshow/:destinationId/photoedit/:photoId" element={<PhotoEdit destinations={destinations} photos={photos} updatePhoto={updatePhoto}/>} />
+        <Route path="/destinationshow/:id/photonew" element={<PhotoNew
+          destinations={destinations} createPhoto={createPhoto} />} />
+        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination} />} />
+        <Route path="/destinationshow/:destinationId/photoedit/:photoId" element={<PhotoEdit destinations={destinations} photos={photos} updatePhoto={updatePhoto} deletePhoto={deletePhoto} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<NotFound />} />
