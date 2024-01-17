@@ -26,7 +26,7 @@ const App = () => {
   
 // authentication methods
 const login = (userInfo) => {
-  fetch(`${url}/signin`, {
+  fetch(`${url}/login`, {
     body: JSON.stringify(userInfo),
     headers: {
       "Content-Type": "application/json",
@@ -159,6 +159,7 @@ const url = "http://localhost:3000/"
       <Header current_user={currentUser} logout={logout}/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<SignIn login={login} signup={signup} />} />
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
         <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} updatePhoto={updatePhoto} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
@@ -167,7 +168,6 @@ const url = "http://localhost:3000/"
         <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination} />} />
         <Route path="/destinationshow/:destinationId/photoedit/:photoId" element={<PhotoEdit destinations={destinations} photos={photos} updatePhoto={updatePhoto} deletePhoto={deletePhoto} />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/signin" element={<SignIn signup={signup}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

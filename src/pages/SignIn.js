@@ -4,31 +4,23 @@ import backgroundPicture from "../assests/homeBg.png";
 import Sign from "../assests/Sign.svg";
 import { useNavigate } from 'react-router-dom';
 
-const SignIn = ({signup}) => {
+const SignIn = ({ login }) => {
   const formRef = useRef()
-  const [signInData, setSignInData] = useState({ email: '', password: '' });
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleChange = (e) => {
-    setSignInData({ ...signInData, [e.target.id]: e.target.value });
-  };
-
-  const handleSignIn = () => {
-    navigate("/destinationindex")
-    console.log('Signing in:', signInData);
-  };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
   const navigate = useNavigate()
-  const handleSignUp = (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
     const userInfo = { 
-      "user":{email: data.email, password: data.passowrd}
+      user:{ email: data.email, password: data.passowrd }
     }
+    login(userInfo)
+    navigate("/destinationindex")
     toggleModal();
   }
 
@@ -63,17 +55,17 @@ const SignIn = ({signup}) => {
           </div>
       </div>
     <div className="sign-flex">
-      <Form className="sign-form">
+      <Form ref={formRef} onSubmit={handleSignIn} className="sign-form">
         <FormGroup className="new-destination-style">
           <Label for="email">Email</Label>
-          <Input type="email" id="email" onChange={handleChange} value={signInData.email} />
+          <Input type="email" name="email" />
         </FormGroup>
         <FormGroup className="new-destination-style">
           <Label for="password">Password</Label>
-          <Input type="password" id="password" onChange={handleChange} value={signInData.password} />
+          <Input type="password" name="password" />
         </FormGroup>
         <div className="button-container"> {/* Container for both buttons */}
-          <Button ref={formRef} onClick={handleSignIn} style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
+          <Input type="submit" value="login" style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Input>
           <Button color="info" onClick={toggleModal} style={{ backgroundColor: '#195789', outline: 'none' }}>Create an Account</Button>
         </div>
       </Form>
@@ -94,7 +86,7 @@ const SignIn = ({signup}) => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button onClick={handleSignUp} style={{ backgroundColor: '#195789'}} >Create Account</Button>{' '}
+          <Button onClick={handleSignIn} style={{ backgroundColor: '#195789'}} >Create Account</Button>{' '}
           <Button color="secondary" onClick={toggleModal}>Cancel</Button>
         </ModalFooter>
       </Modal>
