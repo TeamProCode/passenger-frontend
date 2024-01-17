@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import backgroundPicture from "../assests/homeBg.png";
 import Sign from "../assests/Sign.svg";
+import { useNavigate } from 'react-router-dom';
 
-const SignIn = () => {
-  const [signInData, setSignInData] = useState({ email: '', password: '' });
+const SignIn = ({ login }) => {
+  const formRef = useRef()
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleChange = (e) => {
-    setSignInData({ ...signInData, [e.target.id]: e.target.value });
-  };
-
-  const handleSignIn = () => {
-    // Handle sign-in
-    console.log('Signing in:', signInData);
-  };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+    navigate("/signup")
   };
-
-  const handleSignUp = () => {
-    // Handle sign-up
-    console.log('Signing up');
-    // Close the modal after successfully creating an account
+  const navigate = useNavigate()
+  const handleSignIn = (e) => {
+    e.preventDefault()
+    const formData = new FormData(formRef.current)
+    console.log("form data:", formData)
+    console.log("form ref:", formRef)
+    const data = Object.fromEntries(formData)
+    const userInfo = { 
+      user:{ email: data.email, password: data.password }
+    }
+    login(userInfo)
+    navigate("/destinationindex")
     toggleModal();
-  };
+  }
+
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundPicture})`,
@@ -58,41 +59,20 @@ const SignIn = () => {
           </div>
       </div>
     <div className="sign-flex">
-      <Form className="sign-form">
+      <form ref={formRef} onSubmit={handleSignIn} className="sign-form">
         <FormGroup className="new-destination-style">
-          <Label for="email">Email</Label>
-          <Input type="email" id="email" onChange={handleChange} value={signInData.email} />
+          {/* <Label for="email">Email</Label> */}
+          <input type="email" name="email" />
         </FormGroup>
         <FormGroup className="new-destination-style">
-          <Label for="password">Password</Label>
-          <Input type="password" id="password" onChange={handleChange} value={signInData.password} />
+          {/* <Label for="password">Password</Label> */}
+          <input type="password" name="password" />
         </FormGroup>
         <div className="button-container"> {/* Container for both buttons */}
-          <Button onClick={handleSignIn} style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
+          <Button type="submit" value="login" style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
           <Button color="info" onClick={toggleModal} style={{ backgroundColor: '#195789', outline: 'none' }}>Create an Account</Button>
         </div>
-      </Form>
-
-      <Modal isOpen={isModalOpen} toggle={toggleModal}>
-        <ModalHeader toggle={toggleModal}>Sign Up</ModalHeader>
-        <ModalBody>
-          {/* Sign-up form fields */}
-          <Form>
-            <FormGroup>
-              <Label for="newEmail">Email</Label>
-              <Input type="email" id="newEmail" />
-            </FormGroup>
-            <FormGroup>
-              <Label for="newPassword">Password</Label>
-              <Input type="password" id="newPassword" />
-            </FormGroup>
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button onClick={handleSignUp} style={{ backgroundColor: '#195789'}} >Create Account</Button>{' '}
-          <Button color="secondary" onClick={toggleModal}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
+      </form>
     </div>
     </div>
   );
