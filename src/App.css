@@ -57,13 +57,33 @@ body {
   }
    /* HOME PAGE ENDS */
 
+   /* DESTINATION SHOW PAGE BEGINS */
+
+   .show-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   }
+
+   .border-container {
+    border: 1px solid #333;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Manuale', serif, Black;
+    background-color:rgba(215, 188, 152, 0.6);
+   }
+
+   /* DESTINATION SHOW PAGE ENDS */
+
   /* NEW DESTINATION PAGE BEGINS */
 
   .destination-flex {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Set the height of the body to 100% of the viewport height */
+    height: 100vh;
     margin: 0;
   }
   
@@ -71,7 +91,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 300px; /* Adjust the maximum width of the form container as needed */
+    max-width: 300px;
   }
 
   .new-destination-style {
