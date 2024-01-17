@@ -1,9 +1,14 @@
 import React from 'react'
 import { Nav, NavItem } from 'reactstrap'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Pass from '../assests/Pass.svg'
 
-const Header = () => {
+const Header = ({ logout }) => {
+    const navigate = useNavigate()
+    const handleClick = () => {
+        logout()
+        navigate("/")
+      }
     return (
        <>
         <img
@@ -48,6 +53,15 @@ const Header = () => {
                          Sign-in/Sign-up
                     </NavLink>
                 </NavItem>
+                <NavItem >
+                    <NavLink 
+                    className='navi-font'>
+                        <button onClick={handleClick}>
+                         Log Out
+                         </button> 
+                    </NavLink>
+                </NavItem>
+
             </Nav >
         </header>
         </> 

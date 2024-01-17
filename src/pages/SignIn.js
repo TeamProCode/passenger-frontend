@@ -10,19 +10,23 @@ const SignIn = ({ login }) => {
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+    navigate("/signup")
   };
   const navigate = useNavigate()
   const handleSignIn = (e) => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
+    console.log("form data:", formData)
+    console.log("form ref:", formRef)
     const data = Object.fromEntries(formData)
     const userInfo = { 
-      user:{ email: data.email, password: data.passowrd }
+      user:{ email: data.email, password: data.password }
     }
     login(userInfo)
     navigate("/destinationindex")
     toggleModal();
   }
+
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundPicture})`,
@@ -55,41 +59,20 @@ const SignIn = ({ login }) => {
           </div>
       </div>
     <div className="sign-flex">
-      <Form ref={formRef} onSubmit={handleSignIn} className="sign-form">
+      <form ref={formRef} onSubmit={handleSignIn} className="sign-form">
         <FormGroup className="new-destination-style">
-          <Label for="email">Email</Label>
-          <Input type="email" name="email" />
+          {/* <Label for="email">Email</Label> */}
+          <input type="email" name="email" />
         </FormGroup>
         <FormGroup className="new-destination-style">
-          <Label for="password">Password</Label>
-          <Input type="password" name="password" />
+          {/* <Label for="password">Password</Label> */}
+          <input type="password" name="password" />
         </FormGroup>
         <div className="button-container"> {/* Container for both buttons */}
-          <Input type="submit" value="login" style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Input>
+          <Button type="submit" value="login" style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
           <Button color="info" onClick={toggleModal} style={{ backgroundColor: '#195789', outline: 'none' }}>Create an Account</Button>
         </div>
-      </Form>
-
-      <Modal isOpen={isModalOpen} toggle={toggleModal}>
-        <ModalHeader toggle={toggleModal}>Sign Up</ModalHeader>
-        <ModalBody>
-          {/* Sign-up form fields */}
-          <Form>
-            <FormGroup>
-              <Label for="newEmail">Email</Label>
-              <Input type="email" id="newEmail" />
-            </FormGroup>
-            <FormGroup>
-              <Label for="newPassword">Password</Label>
-              <Input type="password" id="newPassword" />
-            </FormGroup>
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button onClick={handleSignIn} style={{ backgroundColor: '#195789'}} >Create Account</Button>{' '}
-          <Button color="secondary" onClick={toggleModal}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
+      </form>
     </div>
     </div>
   );

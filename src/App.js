@@ -18,12 +18,14 @@ import { Routes, Route } from "react-router-dom"
 import "./components/Footer.css"
 import "./components/Header.css"
 import SignIn from "./pages/SignIn"
+import SignUp from "./pages/SignUp"
 
 
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
-  
+  const url = "http://localhost:3000"
+  console.log("current user", currentUser)
 // authentication methods
 const login = (userInfo) => {
   fetch(`${url}/login`, {
@@ -42,7 +44,9 @@ const login = (userInfo) => {
     localStorage.setItem("token", response.headers.get("Authorization"))
     return response.json()
   })
-  .then(payload => {
+  .then((payload) => {
+    localStorage.setItem("user", JSON.stringify(payload))
+
     setCurrentUser(payload)
   })
   .catch(error => console.log("login errors: ", error))
@@ -65,7 +69,8 @@ const signup = (userInfo) => {
     localStorage.setItem("token", response.headers.get("Authorization"))
     return response.json()
   })
-  .then(payload => {
+  .then((payload) => {
+    localStorage.setItem("user", JSON.stringify(payload))
     setCurrentUser(payload)
   })
   .catch(error => console.log("login errors: ", error))
@@ -81,6 +86,7 @@ const logout = () => {
   })
   .then(payload => {
     localStorage.removeItem("token")  
+    localStorage.removeItem("user")  
     setCurrentUser(null)
   })
   .catch(error => console.log("log out errors: ", error))
@@ -105,7 +111,6 @@ const logout = () => {
     }
     readDestinations()
   }, [])
-const url = "http://localhost:3000/"
   const [photos, setPhotos] = useState([])
  
     useEffect(() => {
@@ -159,7 +164,8 @@ const url = "http://localhost:3000/"
       <Header current_user={currentUser} logout={logout}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn login={login} signup={signup} />} />
+        <Route path="/signup" element={<SignUp signup={signup} />} />
+        <Route path="/signin" element={<SignIn login={login}  />} />
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
         <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} updatePhoto={updatePhoto} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
