@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import backgroundPicture from "../assests/homeBg.png";
 import Sign from "../assests/Sign.svg";
+import { useNavigate } from 'react-router-dom';
 
-const SignIn = () => {
+const SignIn = ({signup}) => {
+  const formRef = useRef()
   const [signInData, setSignInData] = useState({ email: '', password: '' });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -12,20 +14,23 @@ const SignIn = () => {
   };
 
   const handleSignIn = () => {
-    // Handle sign-in
+    navigate("/destinationindex")
     console.log('Signing in:', signInData);
   };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-
-  const handleSignUp = () => {
-    // Handle sign-up
-    console.log('Signing up');
-    // Close the modal after successfully creating an account
+  const navigate = useNavigate()
+  const handleSignUp = (e) => {
+    e.preventDefault()
+    const formData = new FormData(formRef.current)
+    const data = Object.fromEntries(formData)
+    const userInfo = { 
+      "user":{email: data.email, password: data.passowrd}
+    }
     toggleModal();
-  };
+  }
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundPicture})`,
@@ -68,7 +73,7 @@ const SignIn = () => {
           <Input type="password" id="password" onChange={handleChange} value={signInData.password} />
         </FormGroup>
         <div className="button-container"> {/* Container for both buttons */}
-          <Button onClick={handleSignIn} style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
+          <Button ref={formRef} onClick={handleSignIn} style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
           <Button color="info" onClick={toggleModal} style={{ backgroundColor: '#195789', outline: 'none' }}>Create an Account</Button>
         </div>
       </Form>
