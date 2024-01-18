@@ -68,8 +68,9 @@ const Signup = ({ signup }) => {
     signup(userInfo);
     navigate("/");
   };
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }} >
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', alignItems: 'center', margin: 0 }} >
       <form
         ref={formRef}
         onSubmit={handleSubmit}
@@ -118,7 +119,7 @@ const Signup = ({ signup }) => {
       </form>
 
       <br />
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }} >
         Already registered, <a href="/login"> Login </a> here.
       </div>
     </div>
