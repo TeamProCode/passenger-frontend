@@ -69,7 +69,7 @@ const Signup = ({ signup }) => {
     navigate("/");
   };
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }} >
       <form
         ref={formRef}
         onSubmit={handleSubmit}
@@ -85,7 +85,7 @@ const Signup = ({ signup }) => {
         />
         </FormGroup>
         
-        <FormGroup>
+        <FormGroup className="new-destination-style">
         <label>Password:</label>
         <input
           type="password"
@@ -95,7 +95,7 @@ const Signup = ({ signup }) => {
         />
         </FormGroup>
 
-        <FormGroup>
+        <FormGroup className="new-destination-style">
         <label>Confirm Password:</label>
         <input
           type="password"
