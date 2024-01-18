@@ -73,7 +73,7 @@ const Signup = ({ signup }) => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        style={{ maxWidth: "300px", margin: "20px auto 0" }}
+        style={{ maxWidth: "300px", margin: "0 auto" }}
       >
         <FormGroup className="new-destination-style">
         <label>Email:</label>
