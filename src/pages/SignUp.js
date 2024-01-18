@@ -112,7 +112,7 @@ const Signup = ({ signup }) => {
       </form>
 
       <br />
-      <div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
         Already registered, <a href="/login">Login</a> here.
       </div>
     </div>
