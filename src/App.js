@@ -24,8 +24,71 @@ import SignUp from "./pages/SignUp"
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
-  const url = "https://passenger-back.onrender.com"
+  const [photos, setPhotos] = useState([])
+  const [destinations, setDestinations] = useState([])
+
   
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user")
+    if (loggedInUser) {
+      setCurrentUser(loggedInUser)
+    }
+    readDestinations()
+  }, [])
+
+  const url = "http://localhost:3000"
+  const readDestinations = () => {
+    fetch(`${url}/destinations`)
+      .then((response) => response.json())
+      .then((payload) => setDestinations(payload))
+      .catch((error) => console.log("Destination read error", error))
+  }
+  // const url = "https://passenger-back.onrender.com"
+
+  const readPhotos = (selectedDestination, id ) => {
+    fetch(`${url}/destinationshow/${id}`)
+      .then((response) => response.json())
+      .then((payload) => setPhotos(payload))
+      .catch((error) => console.log(error))
+    }
+  
+  const createDestination = (createdDestination) => {
+    fetch(`${url}/destinations`, {
+      body: JSON.stringify(createdDestination),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    method: "POST"
+  })
+    .then((response) => response.json())
+    .then(() => readDestinations())
+    .catch((errors) => console.log("Destionation create errors:", errors))
+}
+
+const updateDestination = (currentDestination, id) => {
+  fetch(`${url}/destinations/${id}`, {
+    body: JSON.stringify(currentDestination),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "PATCH",
+  })
+    .then((response) => response.json())
+    .then(() => readDestinations())
+    .catch((error) => console.log("Update destinaiton errors: ", error))
+}
+
+const deleteDestination= (id) => {
+  fetch(`${url}/destinations/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then(() => readDestinations())
+    .catch((errors) => console.log("delete errors:", errors))
+}
 // authentication methods
 const login = (userInfo) => {
   fetch(`${url}/login`, {
@@ -82,9 +145,9 @@ const logout = () => {
       "Content-Type": "application/json",
       "Authorization": localStorage.getItem("token") 
     },
-    method: "DELETE"
+    method: "DELETE",
   })
-  .then(payload => {
+  .then((payload) => {
     localStorage.removeItem("token")  
     localStorage.removeItem("user")  
     setCurrentUser(null)
@@ -92,58 +155,8 @@ const logout = () => {
   .catch(error => console.log("log out errors: ", error))
 }
 
-  const [destinations, setDestinations] = useState([])
-  useEffect(() => {
-    readDestinations()
-  }, [])
-
-  const readDestinations = () => {
-    fetch(`${url}/destinations`)
-      .then((response) => response.json())
-      .then((payload) => setDestinations(payload))
-      .catch((error) => console.log(error))
-  }
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("token")
-    if (loggedInUser) {
-      setCurrentUser(loggedInUser)
-    }
-    readDestinations()
-  }, [])
-  const [photos, setPhotos] = useState([])
- 
-    useEffect(() => {
-      readPhotos()
-    }, [])
-  
-    const readPhotos = () => {
-      fetch(`${url}/photos`)
-        .then((response) => response.json())
-        .then((payload) => setPhotos(payload))
-        .catch((error) => console.log(error))
-    }
-  
-  const createDestination = (destination) => {
-    fetch(`${url}/destinations`, {
-    body: JSON.stringify(destination),
-    headers: {
-      "Content-Type": "application/json"
-    },
-    method: "POST"
-  })
-    .then((response) => response.json())
-    .then(() => readDestinations())
-    .catch((errors) => console.log("Destionation create errors:", errors))
-}
-    // console.log(destination)
-  console.log(photos)
   const createPhoto = (photo) => {
     console.log(photo)
-  }
-  const updateDestination = (destination, destinationId) => {
-    console.log("destination:", destination)
-    console.log("id:", destinationId)
   }
 
   const updatePhoto = (photo, photoId) => {
@@ -151,10 +164,6 @@ const logout = () => {
     console.log("id:", photoId)
   }
 
-  const deleteDestination = (destination, destinationId) => {
-    console.log("destination:", destination)
-    console.log("id:", destinationId)
-  }
   const deletePhoto = (photo, photoId) => {
     console.log("photo", photo)
     console.log("id", photoId)
@@ -170,7 +179,7 @@ const logout = () => {
         <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} updatePhoto={updatePhoto} />} />
         <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
         <Route path="/destinationshow/:id/photonew" element={<PhotoNew
-          destinations={destinations} createPhoto={createPhoto} />} />
+          photos={photos} destinations={destinations} createPhoto={createPhoto} />} />
         <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination} />} />
         <Route path="/destinationshow/:destinationId/photoedit/:photoId" element={<PhotoEdit destinations={destinations} photos={photos} updatePhoto={updatePhoto} deletePhoto={deletePhoto} />} />
         <Route path="/aboutus" element={<AboutUs />} />

@@ -6,6 +6,7 @@ import backgroundPicture from "../assests/homeBg.png";
 
 const DestinationNew = ({ createDestination }) => {
   const navigate = useNavigate();
+
   const [newDestination, setNewDestination] = useState({
     location: "",
     climate: "",
@@ -73,7 +74,7 @@ const DestinationNew = ({ createDestination }) => {
           </FormGroup>
           <FormGroup className="new-destination-style">
             <Label for="image">Image</Label>
-            <Input role="textbox-image" type="img" id="image" onChange={handleChange} value={newDestination.image} />
+            <Input role="textbox-image" type="text" id="image" onChange={handleChange} value={newDestination.image} />
           </FormGroup>
           <Button onClick={handleSubmit} style={{ backgroundColor: '#195789' }}>Submit</Button>
         </Form>
