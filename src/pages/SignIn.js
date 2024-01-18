@@ -6,12 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SignIn = ({ login }) => {
   const formRef = useRef()
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-    navigate("/signup")
-  };
   const navigate = useNavigate()
   const handleSignIn = (e) => {
     e.preventDefault()
@@ -24,7 +19,6 @@ const SignIn = ({ login }) => {
     }
     login(userInfo)
     navigate("/destinationindex")
-    toggleModal();
   }
 
 
@@ -70,7 +64,7 @@ const SignIn = ({ login }) => {
         </FormGroup>
         <div className="button-container"> {/* Container for both buttons */}
           <Button type="submit" value="login" style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>Login</Button>
-          <Button color="info" onClick={toggleModal} style={{ backgroundColor: '#195789', outline: 'none' }}>Create an Account</Button>
+          <Button color="info" style={{ backgroundColor: '#195789', outline: 'none' }}>Create an Account</Button>
         </div>
       </form>
     </div>
