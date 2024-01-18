@@ -55,11 +55,11 @@ const SignIn = ({ login }) => {
     <div className="sign-flex">
       <form ref={formRef} onSubmit={handleSignIn} className="sign-form">
         <FormGroup className="new-destination-style">
-          {/* <Label for="email">Email</Label> */}
+          <Label for="email">Email</Label>
           <input type="email" name="email" />
         </FormGroup>
         <FormGroup className="new-destination-style">
-          {/* <Label for="password">Password</Label> */}
+          <Label for="password">Password</Label>
           <input type="password" name="password" />
         </FormGroup>
         <div className="button-container"> {/* Container for both buttons */}
