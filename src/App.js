@@ -24,8 +24,8 @@ import SignUp from "./pages/SignUp"
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
-  const url = "http://localhost:3000"
-  console.log("current user", currentUser)
+  const url = "https://passenger-back.onrender.com"
+  
 // authentication methods
 const login = (userInfo) => {
   fetch(`${url}/login`, {
@@ -98,7 +98,7 @@ const logout = () => {
   }, [])
 
   const readDestinations = () => {
-    fetch("http://localhost:3000/destinations")
+    fetch(`${url}/destinations`)
       .then((response) => response.json())
       .then((payload) => setDestinations(payload))
       .catch((error) => console.log(error))
@@ -118,14 +118,14 @@ const logout = () => {
     }, [])
   
     const readPhotos = () => {
-      fetch("http://localhost:3000/photos")
+      fetch(`${url}/photos`)
         .then((response) => response.json())
         .then((payload) => setPhotos(payload))
         .catch((error) => console.log(error))
     }
   
   const createDestination = (destination) => {
-    fetch("http://localhost:3000/destinations", {
+    fetch(`${url}/destinations`, {
     body: JSON.stringify(destination),
     headers: {
       "Content-Type": "application/json"
