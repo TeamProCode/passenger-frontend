@@ -73,8 +73,9 @@ const Signup = ({ signup }) => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        style={{ maxWidth: "300px", margin: "0 auto" }}
+        style={{ maxWidth: "300px", margin: "20px auto 0" }}
       >
+        <FormGroup className="new-destination-style">
         <label>Email:</label>
         <input
           type="email"
@@ -82,7 +83,9 @@ const Signup = ({ signup }) => {
           placeholder="Email"
           style={{ width: "100%", marginBottom: "10px" }}
         />
-
+        </FormGroup>
+        
+        <FormGroup>
         <label>Password:</label>
         <input
           type="password"
@@ -90,7 +93,9 @@ const Signup = ({ signup }) => {
           placeholder="Password"
           style={{ width: "100%", marginBottom: "10px" }}
         />
+        </FormGroup>
 
+        <FormGroup>
         <label>Confirm Password:</label>
         <input
           type="password"
@@ -98,6 +103,7 @@ const Signup = ({ signup }) => {
           placeholder="Confirm Password"
           style={{ width: "100%", marginBottom: "10px" }}
         />
+        </FormGroup>
 
         <input
           type="submit"
@@ -113,7 +119,7 @@ const Signup = ({ signup }) => {
 
       <br />
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-        Already registered, <a href="/login">Login</a> here.
+        Already registered, <a href="/login"> Login </a> here.
       </div>
     </div>
   );
