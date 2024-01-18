@@ -3,7 +3,7 @@ import { useParams, NavLink } from "react-router-dom"
 import { Button } from 'reactstrap'
 
 
-const DestinationShow = ({ destinations, photos, deleteDestination, }) => {
+const DestinationShow = ({ destinations, photos, deleteDestination }) => {
   const { id } = useParams()
   let currentPhotos = photos.filter((photo) => photo.destination_id === +id)
   let currentDestination = destinations.find((destination) => destination.id === +id)
@@ -16,7 +16,7 @@ const DestinationShow = ({ destinations, photos, deleteDestination, }) => {
   }
 
   const handleDelete = () => {
-    deleteDestination(currentDestination, currentDestination.id)
+    deleteDestination(currentDestination.id)
   }
 
   // console.log((currentPhotos))
@@ -37,7 +37,7 @@ return (
       <div className="border-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
         <p>Location: {currentDestination.location}</p>
         <p>Climate: {currentDestination.climate}</p>
-        <p>Language: {currentDestination.language}</p>
+        <p>Language: {currentDestination.local_language}</p>
         <p>Description: {currentDestination.description}</p>
         <NavLink to={`/destinationedit/${currentDestination.id}`} className="nav-link">
           <Button style={{ backgroundColor: '#B6706E', marginBottom: '10px' }}>

@@ -48,7 +48,7 @@ const Header = ({ logout }) => {
                     </NavLink>
                 </NavItem>
                 <NavItem >
-                    <NavLink to="/signin"
+                    <NavLink to="/login"
                         className='navi-font'>
                          Sign-in/Sign-up
                     </NavLink>

@@ -4,15 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import NewDestination from "../assests/NewDestination.svg";
 import backgroundPicture from "../assests/homeBg.png";
 
-const DestinationNew = ({ createDestination }) => {
+const DestinationNew = ({ createDestination, currentUser }) => {
   const navigate = useNavigate();
 
   const [newDestination, setNewDestination] = useState({
     location: "",
     climate: "",
-    language: "",
+    local_language: "",
     description: "",
     image: "",
+    user_id: currentUser.id
   });
 
   const handleChange = (e) => {
@@ -58,23 +59,23 @@ const DestinationNew = ({ createDestination }) => {
         <Form>
           <FormGroup className="new-destination-style">
             <Label for="location">Location</Label>
-            <Input role="textbox-location" type="text" id="location" onChange={handleChange} value={newDestination.location} />
+            <Input role="textbox-location" type="text" id="location" name="location" onChange={handleChange} value={newDestination.location} />
           </FormGroup>
           <FormGroup className="new-destination-style">
             <Label for="climate">Climate</Label>
-            <Input role="textbox-climate" type="text" id="climate" onChange={handleChange} value={newDestination.climate} />
+            <Input role="textbox-climate" type="text" id="climate" name="climate" onChange={handleChange} value={newDestination.climate} />
           </FormGroup>
           <FormGroup className="new-destination-style">
-            <Label for="language">Language</Label>
-            <Input role="textbox-language" type="text" id="language" onChange={handleChange} value={newDestination.language} />
+            <Label for="local_language">Language</Label>
+            <Input role="textbox-language" type="text" id="local_language" name="local_language" onChange={handleChange} value={newDestination.language} />
           </FormGroup>
           <FormGroup className="new-destination-style">
             <Label for="description">Description</Label>
-            <Input role="textbox-description" type="text" id="description" onChange={handleChange} value={newDestination.description} />
+            <Input role="textbox-description" type="text" id="description" name="description" onChange={handleChange} value={newDestination.description} />
           </FormGroup>
           <FormGroup className="new-destination-style">
             <Label for="image">Image</Label>
-            <Input role="textbox-image" type="text" id="image" onChange={handleChange} value={newDestination.image} />
+            <Input role="textbox-image" type="text" id="image" name="image" onChange={handleChange} value={newDestination.image} />
           </FormGroup>
           <Button onClick={handleSubmit} style={{ backgroundColor: '#195789' }}>Submit</Button>
         </Form>

@@ -45,8 +45,8 @@ const App = () => {
   }
   // const url = "https://passenger-back.onrender.com"
 
-  const readPhotos = (selectedDestination, id ) => {
-    fetch(`${url}/destinationshow/${id}`)
+  const readPhotos = () => {
+    fetch(`${url}/photos`)
       .then((response) => response.json())
       .then((payload) => setPhotos(payload))
       .catch((error) => console.log(error))
@@ -91,11 +91,12 @@ const deleteDestination= (id) => {
 }
 // authentication methods
 const login = (userInfo) => {
+  console.log("we're here")
   fetch(`${url}/login`, {
     body: JSON.stringify(userInfo),
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      Accept: "application/json"
     },
     method: "POST"
   })
@@ -109,7 +110,7 @@ const login = (userInfo) => {
   })
   .then((payload) => {
     localStorage.setItem("user", JSON.stringify(payload))
-
+    console.log(payload)
     setCurrentUser(payload)
   })
   .catch(error => console.log("login errors: ", error))
@@ -174,13 +175,13 @@ const logout = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
-        <Route path="/signin" element={<SignIn login={login}  />} />
+        <Route path="/login" element={<SignIn login={login}  />} />
         <Route path="/destinationindex" element={<DestinationIndex destinations={destinations} />} />
-        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} updatePhoto={updatePhoto} />} />
-        <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} />} />
+        <Route path="/destinationshow/:id" element={<DestinationShow destinations={destinations} deleteDestination={deleteDestination} photos={photos} readPhotos={readPhotos} updatePhoto={updatePhoto} />} />
+        <Route path="/destinationnew" element={<DestinationNew createDestination={createDestination} currentUser={currentUser} />} />
         <Route path="/destinationshow/:id/photonew" element={<PhotoNew
           photos={photos} destinations={destinations} createPhoto={createPhoto} />} />
-        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination} />} />
+        <Route path="/destinationedit/:id" element={<DestinationEdit destinations={destinations} updateDestination={updateDestination} currentUser={currentUser}/>} />
         <Route path="/destinationshow/:destinationId/photoedit/:photoId" element={<PhotoEdit destinations={destinations} photos={photos} updatePhoto={updatePhoto} deletePhoto={deletePhoto} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
