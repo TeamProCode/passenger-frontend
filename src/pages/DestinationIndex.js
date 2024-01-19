@@ -57,7 +57,7 @@ const DestinationIndex = ({ destinations }) => {
                 Climate: {destination.climate}
               </CardSubtitle>
 
-              <CardSubtitle>Language: {destination.language}</CardSubtitle>
+              <CardSubtitle>Language: {destination.local_language}</CardSubtitle>
 
               <CardSubtitle>
                 Description: {destination.description}

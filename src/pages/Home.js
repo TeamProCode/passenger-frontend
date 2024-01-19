@@ -118,7 +118,7 @@ const Home = () => {
       <div className="home-bg" style={backgroundStyle}>
         <div style={mottoText}>
           <h2>Whether living vicariously through others or creating bonds while embarking on adventures together, Passenger allows you to experience the places we all love to go!</h2>
-          <Link to="/signin" className="manual-font">
+          <Link to="/signup" className="manual-font">
             <button style={{ backgroundColor: '#195789' }}>GET ACCESS</button>
           </Link>
         </div>
